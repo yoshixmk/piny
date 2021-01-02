@@ -4,5 +4,5 @@ export const pinyinToAlphabet = (text: string): string => {
     .replaceAll(/[īíǐì]/ig, "i")
     .replaceAll(/[ūúǔù]/ig, "u")
     .replaceAll(/[ōóǒò]/ig, "o")
-    .replaceAll(/[ǖǘǚǜ]/ig, "u")
-}
+    .replaceAll(/[ǖǘǚǜ]/ig, "u");
+};
