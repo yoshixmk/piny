@@ -3,7 +3,7 @@
 **HSK** (漢語水平考試) word memorization tool with CLI,  
 and can learn vocabulary and pinyin efficiently.
 
-![piny demo gif](./demo.gif)
+![piny demo gif](./docs/demo.gif)
 ## Usage
 Preparation: Install [Deno](https://deno.land/manual/getting_started/installation), and download this repository.
 ```bash
@@ -27,3 +27,15 @@ Format is CSV:
 ...
 ```
 > Dictionary origin files: <https://12daimedaimonya-chinese.com/hsk-word-download/>
+
+## Listening using Say (Experimental feat)
+`Preferences > Accessibility > Speech`, clicking the voice selector and in there Customize.  
+Download "Ting-Ting" voice.
+![setup say png](./docs/setup-say.png)
+
+```bash
+$ npm install -g say
+$ deno run --allow-read --allow-run=/usr/bin/say ./mod.ts --say
+```
+> Notice: --allow-run, It may become unusable in the future.  
+> refs: <https://github.com/denoland/deno/issues/3378>

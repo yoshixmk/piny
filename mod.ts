@@ -1,4 +1,4 @@
-import { bgBlue, BufReader, parse } from "./deps.ts";
+import { bgBlue, BufReader, parse, flagParse } from "./deps.ts";
 
 const [hsk3File, hsk4File, hsk5File, hsk6File] = await Promise.all([
   Deno.open("./dict/HSK3-word-japanese.csv"),
@@ -35,6 +35,12 @@ try {
 ${mean}`);
     const input = prompt(han);
     console.log(bgBlue(["Check:", input, "/", pin].join(" ")));
+
+    if (flagParse(Deno.args).say) {
+      Deno.run({
+        cmd: ["say", "-v", "Ting-Ting", han],
+      });
+    }
     // console.dir(record);
   }
 } finally {
