@@ -3,14 +3,16 @@
 **HSK** (漢語水平考試) word memorization tool with CLI,  
 and can learn vocabulary and pinyin efficiently.
 
+![piny demo gif](./demo.gif)
 ## Usage
+Preparation: Install [Deno](https://deno.land/manual/getting_started/installation), and download this repository.
 ```bash
 $ deno run --allow-read ./mod.ts
 ```
 ### Index file
 By creating a bookmark file, you can start from the middle.
 ```bash
-# ex: 8th of HSK3
+# Ex: 8th of HSK3
 $ echo 'HSK3-8' > dict/dict.idx
 ```
 

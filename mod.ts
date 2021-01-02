@@ -1,18 +1,17 @@
-import { BufReader, parse, bgBlue } from "./deps.ts";
+import { bgBlue, BufReader, parse } from "./deps.ts";
 
 const [hsk3File, hsk4File, hsk5File, hsk6File] = await Promise.all([
   Deno.open("./dict/HSK3-word-japanese.csv"),
   Deno.open("./dict/HSK4-word-japanese.csv"),
   Deno.open("./dict/HSK5-word-japanese.csv"),
   Deno.open("./dict/HSK6-word-japanese.csv"),
-  // Deno.open("./dict/dict.idx", {createNew: true}),
 ]);
 
 var startLine;
 try {
   startLine = await Deno.readTextFile("./dict/dict.idx");
-} catch(e) {
-  startLine = "HSK3-1"
+} catch (e) {
+  startLine = "HSK3-1";
 }
 
 try {
@@ -23,13 +22,14 @@ try {
   const result = await Promise.all(
     [parse(buf3), parse(buf4), parse(buf5), parse(buf6)],
   );
-  console.dir(result.flat());
+  // console.dir(result.flat());
 
   for (const record of result.flat() as string[5][]) {
     const [_, han, pin, mean, index] = record;
     if (startLine && startLine !== index) {
       continue;
     }
+    startLine = undefined;
     console.log(`---------------
     ${index}
 ${mean}`);
