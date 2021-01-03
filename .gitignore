@@ -2,6 +2,7 @@
 
 # user's index file
 dict/dict.idx
+records/*.txt
 
 # exceptions
 !.gitkeep

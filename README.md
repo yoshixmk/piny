@@ -7,7 +7,7 @@ and can learn vocabulary and pinyin efficiently.
 ## Usage
 Preparation: Install [Deno](https://deno.land/manual/getting_started/installation), and download this repository.
 ```bash
-$ deno run --allow-read ./mod.ts
+$ deno run --allow-read ./piny-cli.ts
 ```
 ### Index file
 By creating a bookmark file, you can start from the middle.
@@ -28,14 +28,20 @@ Format is CSV:
 ```
 > Dictionary origin files: <https://12daimedaimonya-chinese.com/hsk-word-download/>
 
-## Listening using Say (Experimental feat)
+## Listening using Say
 `Preferences > Accessibility > Speech`, clicking the voice selector and in there Customize.  
 Download "Ting-Ting" voice.
 ![setup say png](./docs/setup-say.png)
 
 ```bash
 $ npm install -g say
-$ deno run --allow-read --allow-run=/usr/bin/say ./mod.ts --say
+$ deno run --allow-read --allow-run=/usr/bin/say ./piny-cli.ts --say
 ```
 > Notice: --allow-run, It may become unusable in the future.  
 > refs: <https://github.com/denoland/deno/issues/3378>
+
+## Recording the result (Experimental feat)
+The results are stored in the `records/` directory.
+```bash
+$ deno run --allow-read --allow-write --allow-run=/usr/bin/say ./piny-cli.ts --say --record
+```
