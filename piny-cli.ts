@@ -10,7 +10,7 @@ const dictionary = await DictionaryFactory.create(
   "./dict/HSK5-word-japanese.csv",
   "./dict/HSK6-word-japanese.csv",
 );
-const startIndex = await readStartIndex();
+const startIndex = readStartIndex();
 dictionary.skip(startIndex);
 const args = flagParse(Deno.args);
 for (const word of dictionary.getWords()) {
@@ -35,13 +35,13 @@ ${word.mean}`);
     );
   }
   if (args.record) {
-    await recordText(word.index, isCorrect);
+    recordText(word.index, isCorrect);
   }
 }
 
-async function readStartIndex() {
+function readStartIndex() {
   try {
-    return await Deno.readTextFile("./dict/dict.idx");
+    return Deno.readTextFileSync("./dict/dict.idx");
   } catch (e) {
     return "HSK3-1";
   }

@@ -1,6 +1,6 @@
-export const recordText = async (index: string, isCorrect: boolean) =>
-  await Deno.writeTextFile(
+export const recordText = (index: string, isCorrect: boolean) =>
+  Deno.writeTextFileSync(
     `./records/${isCorrect ? "correct" : "incorrect"}.txt`,
-    index,
+    `${index}\n`,
     { append: true },
   );
