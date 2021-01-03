@@ -21,6 +21,11 @@ export class Dictionary {
     }
   }
 
+  public overcomeWeekness(indexies: string[]): Array<Word> {
+    this.words = this.words.filter((word) => indexies.includes(word.index));
+    return this.words;
+  }
+
   public getWords() {
     return this.words;
   }

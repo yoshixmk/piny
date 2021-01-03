@@ -10,9 +10,14 @@ const dictionary = await DictionaryFactory.create(
   "./dict/HSK5-word-japanese.csv",
   "./dict/HSK6-word-japanese.csv",
 );
-const startIndex = readStartIndex();
-dictionary.skip(startIndex);
 const args = flagParse(Deno.args);
+if (args.overcome) {
+  const incorrect = readIncorrect();
+  dictionary.overcomeWeekness(incorrect);
+} else {
+  const startIndex = readStartIndex();
+  dictionary.skip(startIndex);
+}
 for (const word of dictionary.getWords()) {
   console.log(`---------------
     ${word.index}
@@ -44,5 +49,19 @@ function readStartIndex() {
     return Deno.readTextFileSync("./dict/dict.idx");
   } catch (e) {
     return "HSK3-1";
+  }
+}
+
+function readIncorrect() {
+  try {
+    const correctList = Deno.readTextFileSync("./records/correct.txt").split(
+      "\n",
+    );
+    return Deno.readTextFileSync("./records/incorrect.txt").split("\n").filter(
+      (incorrect) => !correctList.includes(incorrect),
+    );
+  } catch (e) {
+    console.error(e);
+    Deno.exit(1);
   }
 }

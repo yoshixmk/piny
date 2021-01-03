@@ -45,3 +45,10 @@ The results are stored in the `records/` directory.
 ```bash
 $ deno run --allow-read --allow-write --allow-run=/usr/bin/say ./piny-cli.ts --say --record
 ```
+
+### Weekpoint Training
+By adding `--overcome` option flag, you can narrow down the words that you keep making mistakes.  
+If this option flag is given, a bookmark file(`dict/dict.idx`) will be ignored.
+```
+$ deno run --allow-read --allow-write --allow-run=/usr/bin/say ./piny-cli.ts --say --record --overcome
+```
