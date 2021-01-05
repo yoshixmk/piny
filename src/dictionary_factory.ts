@@ -1,4 +1,5 @@
-import { BufReader, parse } from "../deps.ts";
+import { BufReader } from "bufio";
+import { parse } from "csv";
 import { Dictionary } from "./dictionary.ts";
 
 export type Word = {
@@ -26,5 +27,13 @@ export class DictionaryFactory {
     } finally {
       openedFiles.forEach((of) => of.close());
     }
+  }
+  public static async createByDefault() {
+    return await DictionaryFactory.create(
+      "./dict/HSK3-word-japanese.csv",
+      "./dict/HSK4-word-japanese.csv",
+      "./dict/HSK5-word-japanese.csv",
+      "./dict/HSK6-word-japanese.csv",
+    );
   }
 }

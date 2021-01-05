@@ -1,13 +1,13 @@
 # Piny
 
-**HSK** (漢語水平考試) word memorization tool with CLI,  
+**HSK** (漢語水平考試) word memorization tool with CLI,
 and can learn vocabulary and pinyin efficiently.
 
 ![piny demo gif](./docs/demo.gif)
 ## Usage
 Preparation: Install [Deno](https://deno.land/manual/getting_started/installation), and download this repository.
 ```bash
-$ deno run --allow-read ./piny-cli.ts
+$ deno run --allow-read --importmap=import_map.json --unstable ./piny-cli.ts
 ```
 ### Index file
 By creating a bookmark file, you can start from the middle.
@@ -17,8 +17,8 @@ $ echo 'HSK3-8' > dict/dict.idx
 ```
 
 ### Customize
-Customization is possible by placing your dictionary file.  
-Format is CSV:  
+Customization is possible by placing your dictionary file.
+Format is CSV:
 **[number, 汉语, pinyin, mean, index(start line key)]**
 ```csv
 1,阿姨,āyí,叔母さん,HSK3-1
@@ -29,26 +29,32 @@ Format is CSV:
 > Dictionary origin files: <https://12daimedaimonya-chinese.com/hsk-word-download/>
 
 ## Listening using Say
-`Preferences > Accessibility > Speech`, clicking the voice selector and in there Customize.  
+`Preferences > Accessibility > Speech`, clicking the voice selector and in there Customize.
 Download "Ting-Ting" voice.
 ![setup say png](./docs/setup-say.png)
 
 ```bash
 $ npm install -g say
-$ deno run --allow-read --allow-run=/usr/bin/say ./piny-cli.ts --say
+$ deno run --allow-read --allow-run=/usr/bin/say --importmap=import_map.json --unstable ./piny-cli.ts --say
 ```
-> Notice: --allow-run, It may become unusable in the future.  
+> Notice: --allow-run, It may become unusable in the future.
 > refs: <https://github.com/denoland/deno/issues/3378>
 
 ## Recording the result (Experimental feat)
 The results are stored in the `records/` directory.
 ```bash
-$ deno run --allow-read --allow-write --allow-run=/usr/bin/say ./piny-cli.ts --say --record
+$ deno run --allow-read --allow-write --allow-run=/usr/bin/say --importmap=import_map.json --unstable ./piny-cli.ts --say --record
 ```
 
 ### Weekpoint Training
-By adding `--overcome` option flag, you can narrow down the words that you keep making mistakes.  
+By adding `--overcome` option flag, you can narrow down the words that you keep making mistakes.
 If this option flag is given, a bookmark file(`dict/dict.idx`) will be ignored.
+```bash
+$ deno run --allow-read --allow-write --allow-run=/usr/bin/say --importmap=import_map.json --unstable ./piny-cli.ts --say --record --overcome
 ```
-$ deno run --allow-read --allow-write --allow-run=/usr/bin/say ./piny-cli.ts --say --record --overcome
+
+## Flashcard on Web
+Please install [Aleph](https://alephjs.org/), and execute the following command.
+```bash
+$ aleph dev
 ```

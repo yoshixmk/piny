@@ -26,6 +26,10 @@ export class Dictionary {
     return this.words;
   }
 
+  public getWord(index: number) {
+    return this.words.find((_, i) => i === index);
+  }
+
   public getWords() {
     return this.words;
   }

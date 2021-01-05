@@ -1,4 +1,6 @@
-import { bgBlue, bgRed, flagParse, green, red, sprintf } from "./deps.ts";
+import { bgBlue, bgRed, green, red } from "colors";
+import { parse } from "flags";
+import { sprintf } from "printf";
 import { DictionaryFactory } from "./src/dictionary_factory.ts";
 import { pinyinToAlphabet } from "./src/pinyin-to-alphabet.ts";
 import { recordText } from "./src/record-text.ts";
@@ -10,7 +12,7 @@ const dictionary = await DictionaryFactory.create(
   "./dict/HSK5-word-japanese.csv",
   "./dict/HSK6-word-japanese.csv",
 );
-const args = flagParse(Deno.args);
+const args = parse(Deno.args);
 if (args.overcome) {
   const incorrect = readIncorrect();
   dictionary.overcomeWeekness(incorrect);
