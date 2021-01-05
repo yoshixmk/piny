@@ -6,3 +6,8 @@ records/*.txt
 
 # exceptions
 !.gitkeep
+
+# aleph
+Thumbs.db
+.aleph/
+dist/
