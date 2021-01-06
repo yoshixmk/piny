@@ -20,7 +20,7 @@ export default function Dictionary() {
     <div className="page">
       <Import from="../../style/index.less" />
       <p className="logo"><Logo /></p>
-      <h1>Welcome to use <strong>Aleph.js</strong>!</h1>
+      <h1>Welcome to use <strong>Piny</strong>!</h1>
       <p>{word?.pin}</p>
       <p>{word?.han}</p>
       <p>{word?.mean}</p>

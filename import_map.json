@@ -1,7 +1,6 @@
 {
     "imports": {
         "csv": "https://deno.land/std@0.83.0/encoding/csv.ts",
-        "bufio": "https://deno.land/std@0.83.0/io/bufio.ts",
         "colors": "https://deno.land/std/fmt/colors.ts",
         "printf": "https://deno.land/std/fmt/printf.ts",
         "flags": "https://deno.land/std@0.83.0/flags/mod.ts"

@@ -12,17 +12,9 @@ export default function Home() {
     <div className="page">
       <Import from="../style/index.less" />
       <p className="logo"><Logo /></p>
-      <h1>Welcome to use <strong>Aleph.js</strong>!</h1>
+      <h1>Welcome to use <strong>Piny</strong>!</h1>
       <p className="links">
-        <a href="https://alephjs.org" target="_blank">Website</a>
-        <span>&middot;</span>
-        <a href="https://alephjs.org/docs/get-started" target="_blank">
-          Get Started
-        </a>
-        <span>&middot;</span>
-        <a href="https://alephjs.org/docs" target="_blank">Docs</a>
-        <span>&middot;</span>
-        <a href="https://github.com/alephjs/aleph.js" target="_blank">Github</a>
+        <a href="./dictionary/1">Start</a>
       </p>
       <p className="counter">
         <span>Counter:</span>

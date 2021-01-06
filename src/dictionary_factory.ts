@@ -1,4 +1,3 @@
-import { BufReader } from "bufio";
 import { parse } from "csv";
 import { Dictionary } from "./dictionary.ts";
 
@@ -13,20 +12,14 @@ export class DictionaryFactory {
   public static async create(
     ...files: string[]
   ): Promise<Dictionary> {
-    const openedFiles: Deno.File[] = await Promise.all(
-      files.map((f) => Deno.open(f)),
-    );
-    try {
-      const bufReaders = openedFiles.map((of) => BufReader.create(of));
-      const lines = (await Promise.all(bufReaders.map((buf) => parse(buf))))
-        .flat() as Array<Array<string>>;
-      const words = lines.map(([_, han, pin, mean, index]) => {
-        return { han, pin, mean, index };
-      });
-      return new Dictionary(words);
-    } finally {
-      openedFiles.forEach((of) => of.close());
-    }
+    const linesEachFile = await Promise.all(files.map(file => Deno.readTextFile(file)));
+
+    const lines = (await parse(linesEachFile.join("\n"))) as Array<Array<string>>;
+
+    const words = lines.map(([_, han, pin, mean, index]) => {
+      return { han, pin, mean, index };
+    });
+    return new Dictionary(words);
   }
   public static async createByDefault() {
     return await DictionaryFactory.create(
