@@ -20,10 +20,9 @@ export default function Dictionary() {
     <div className="page">
       <Import from="../../style/index.less" />
       <p className="logo"><Logo /></p>
-      <h1>Welcome to use <strong>Piny</strong>!</h1>
-      <p>{word?.pin}</p>
-      <p>{word?.han}</p>
-      <p>{word?.mean}</p>
+      <p className="pin">{word?.pin}</p>
+      <p className="han">{word?.han}</p>
+      <p className="mean">{word?.mean}</p>
       <p className="links">
         <Link to={`../${Number(params.id) - 1}`}>Prev</Link>
         <Link to={`../${Number(params.id) + 1}`}>Next</Link>
