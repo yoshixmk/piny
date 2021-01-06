@@ -4,7 +4,7 @@ import {
   useDeno,
   useRouter,
 } from "https://deno.land/x/aleph/mod.ts";
-import React from "https://esm.sh/react";
+import React, { useEffect, useState } from "https://esm.sh/react";
 import Logo from "../../components/logo.tsx";
 import { DictionaryFactory } from "../../src/dictionary_factory.ts";
 
@@ -28,6 +28,15 @@ export default function Dictionary() {
         <Link to={`../${Number(params.id) - 1}`}>Prev</Link>
         <Link to={`../${Number(params.id) + 1}`}>Next</Link>
       </p>
+      <iframe
+        src={`https://www.bing.com/images/search?qft=+filterui:photo-clipart&q=${word
+          ?.han}`}
+        name="sample"
+        width="100%"
+        height="100%"
+        className="bing"
+      >
+      </iframe>
     </div>
   );
 }

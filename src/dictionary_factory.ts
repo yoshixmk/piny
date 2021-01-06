@@ -12,9 +12,13 @@ export class DictionaryFactory {
   public static async create(
     ...files: string[]
   ): Promise<Dictionary> {
-    const linesEachFile = await Promise.all(files.map(file => Deno.readTextFile(file)));
+    const linesEachFile = await Promise.all(
+      files.map((file) => Deno.readTextFile(file)),
+    );
 
-    const lines = (await parse(linesEachFile.join("\n"))) as Array<Array<string>>;
+    const lines = (await parse(linesEachFile.join("\n"))) as Array<
+      Array<string>
+    >;
 
     const words = lines.map(([_, han, pin, mean, index]) => {
       return { han, pin, mean, index };
