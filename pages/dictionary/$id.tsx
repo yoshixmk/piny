@@ -2,9 +2,9 @@ import {
   Import,
   Link,
   useDeno,
-  useRouter,
+  useRouter
 } from "https://deno.land/x/aleph/mod.ts";
-import React, { useEffect, useState } from "https://esm.sh/react";
+import React from "https://esm.sh/react";
 import Logo from "../../components/logo.tsx";
 import { DictionaryFactory } from "../../src/dictionary_factory.ts";
 
