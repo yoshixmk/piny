@@ -2,11 +2,10 @@ import {
   Import,
   Link,
   useDeno,
-  useRouter,
+  useRouter
 } from "https://deno.land/x/aleph/mod.ts";
-import React, { useState } from "https://esm.sh/react";
+import React from "https://esm.sh/react";
 import Logo from "../../components/logo.tsx";
-import Toggle from "../../components/toggle.tsx";
 import { DictionaryFactory } from "../../src/dictionary_factory.ts";
 
 export default function Dictionary() {
