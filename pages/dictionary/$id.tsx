@@ -2,10 +2,11 @@ import {
   Import,
   Link,
   useDeno,
-  useRouter
+  useRouter,
 } from "https://deno.land/x/aleph/mod.ts";
-import React from "https://esm.sh/react";
+import React, { useState } from "https://esm.sh/react";
 import Logo from "../../components/logo.tsx";
+import Toggle from "../../components/toggle.tsx";
 import { DictionaryFactory } from "../../src/dictionary_factory.ts";
 
 export default function Dictionary() {
@@ -15,10 +16,14 @@ export default function Dictionary() {
       Number(params.id),
     );
   });
+  // cannot use state because there is error importing deno.
+  // const [isImagePanel, setIsImagePanel] = useState(false);
 
   return (
     <div className="page">
       <Import from="../../style/index.less" />
+      <Import name="DictionaryFactory" from="../../src/dictionary_factory.ts" />
+      {/* <Toggle checked={isImagePanel} onChange={() => setIsImagePanel((b) => !b)} /> */}
       <p className="logo"><Logo /></p>
       <p className="pin">{word?.pin}</p>
       <p className="han">{word?.han}</p>
