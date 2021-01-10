@@ -1,7 +1,7 @@
 import { bgBlue, bgRed, green, red } from "colors";
 import { parse } from "flags";
 import { sprintf } from "printf";
-import { DictionaryFactory } from "./src/dictionary_factory.ts";
+import { DictionaryFactory } from "./src/dictionary-factory.ts";
 import { pinyinToAlphabet } from "./src/pinyin-to-alphabet.ts";
 import { recordText } from "./src/record-text.ts";
 import { say } from "./src/say.ts";

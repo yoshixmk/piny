@@ -1,4 +1,4 @@
-import { Word } from "./dictionary_factory.ts";
+import { Word } from "./dictionary-factory.ts";
 
 export class Dictionary {
   private words: Array<Word>;

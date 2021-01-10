@@ -1,5 +1,5 @@
 import type { APIRequest } from "https://deno.land/x/aleph/types.ts";
-import { DictionaryFactory } from "../src/dictionary_factory.ts";
+import { DictionaryFactory } from "../src/dictionary-factory.ts";
 
 export default async function handler(req: APIRequest) {
   const dict = await DictionaryFactory.createByDefault();
