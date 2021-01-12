@@ -45,6 +45,8 @@ ${word.mean}`);
     recordText(word.index, isCorrect);
   }
 }
+// wait last say
+setTimeout(() => { }, 1500);
 
 function readStartIndex() {
   try {
